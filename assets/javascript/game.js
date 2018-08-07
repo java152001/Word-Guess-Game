@@ -1,52 +1,74 @@
 var wordBank = ["WHITEWALKER", "VALYRIA", "KINGSLAYER", "HODOR", "DIREWOLF", "DRAGON", "KHALEESI", "LANNISTER"]
-
 var wordGuess = wordBank[Math.floor(Math.random() * wordBank.length)];
-
-var blanksArray = [];
-
-var blanks = "";
-
-var wrongLetters = []
-
+var attempts = 12;
+var lettersArray = [];
+var currentWord = "";
+var wrongLetter = "";
+var wrongLetters = [];
+var wrongsLettersStrg = "";
 var activeWord = "";
 
 // Determines how many letters are in the random word and how many dashes are needed.
 for (i = 0; i < wordGuess.length; i++) {
-    blanksArray.push(" _");
+    lettersArray.push(" _");
 }
 
 // Pushes the entire array of dashes into a single string to be displayed.
-for (i = 0; i < blanksArray.length; i++) {
-    blanks = blanks + blanksArray[i];
+for (i = 0; i < lettersArray.length; i++) {
+    currentWord = currentWord + lettersArray[i];
 }
 
-console.log(blanks);
+console.log(currentWord);
 
 // Function that will determine the letter that is being pressed by the player.
 document.onkeyup = function(event) {
     var playerGuess = event.key;
     playerGuess = playerGuess.toUpperCase();
 
+
+// Makes sure that the user doesn't pick the same letter over and over    
+if (wrongLetters.includes(playerGuess)){
+    console.log("Choose again please");
+}
+else {
 // Compares the key pressed by the player to the word.
-    for (i = 0; i < wordGuess.length; i++) {   
-            
-        if (wordGuess.charAt(i) === playerGuess) {
-            blanksArray[i] = " " + playerGuess;
-        }
-        else {
-            wrongLetters.push(playerGuess);
+    if (wordGuess.includes(playerGuess)) {
+        for (i = 0; i < wordGuess.length; i++) {
+            if (wordGuess.charAt(i) === playerGuess) {
+                lettersArray[i] = " " + playerGuess;
+            }
         }
     }
+    else {
+        wrongLetter = playerGuess;
+        attempts = attempts - 1;
+    }
+}
+
+// Pushes the wrong letter chosen to my wrong letters array
+    wrongLetters.push(wrongLetter);
+    wrongLetter = "";
 
 // Overwrites word to be displayed
-    blanks = "";
+    currentWord = "";
 
 // Loops through word after player guess, overwriting with their new correct letter
-    for (i = 0; i < blanksArray.length; i++) {
-        blanks = blanks + blanksArray[i];
+    for (i = 0; i < lettersArray.length; i++) {
+        currentWord = currentWord + lettersArray[i];
     }
 
-    console.log(blanks);
+    console.log(currentWord);   
+
+// Overwrites Wrong Letters to be displayed
+    wrongsLettersStrg = "";
+
+// Loops through wrong Letters to display
+    for (i = 0; i < wrongLetters.length; i++) {
+        wrongsLettersStrg = wrongsLettersStrg + " " + wrongLetters[i];
+    }
+
+    console.log(wrongsLettersStrg);
+    console.log("Guesses remaining: " + attempts);
 }
 
 
