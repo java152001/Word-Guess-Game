@@ -1,6 +1,6 @@
 var wordBank = ["WHITEWALKER", "VALYRIA", "KINGSLAYER", "HODOR", "DIREWOLF", "DRAGON", "KHALEESI", "LANNISTER"]
-var wordGuess = wordBank[Math.floor(Math.random() * wordBank.length)];
-var attempts = 12;
+var wordGuess;
+var attempts;
 var lettersArray = [];
 var currentWord = "";
 var wrongLetter = "";
@@ -8,15 +8,7 @@ var wrongLetters = [];
 var wrongsLettersStrg = "";
 var activeWord = "";
 
-// Determines how many letters are in the random word and how many dashes are needed.
-for (i = 0; i < wordGuess.length; i++) {
-    lettersArray.push(" _");
-}
-
-// Pushes the entire array of dashes into a single string to be displayed.
-for (i = 0; i < lettersArray.length; i++) {
-    currentWord = currentWord + lettersArray[i];
-}
+startGame();
 
 console.log(currentWord);
 
@@ -71,6 +63,21 @@ else {
     console.log("Guesses remaining: " + attempts);
 }
 
+// Function to define the start of the game by picking a random word and resetting attempts.
+function startGame() {
+    wordGuess = wordBank[Math.floor(Math.random() * wordBank.length)];
+    attempts = 12;
+
+    // Determines how many letters are in the random word and how many dashes are needed.
+        for (i = 0; i < wordGuess.length; i++) {
+            lettersArray.push(" _");
+        }
+
+    // Pushes the entire array of dashes into a single string to be displayed.
+        for (i = 0; i < lettersArray.length; i++) {
+            currentWord = currentWord + lettersArray[i];
+        }
+}
 
     
 
