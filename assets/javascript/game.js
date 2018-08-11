@@ -128,6 +128,8 @@ document.onkeyup = function(event) {
 
         if (attempts === 0) {
             document.getElementById("beginMessage").innerHTML = "Too Bad! Press a letter to start again";
+            document.getElementById("pic").src="assets/images/Joffrey.png";
+            document.getElementById("winningPic").style.visibility = "visible";
             losses++;
             document.getElementById("losses").innerHTML = losses;
             startGame();
