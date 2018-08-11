@@ -1,0 +1,91 @@
+body {
+    background-color: #d29b16;
+    font-family: 'Cinzel Decorative', cursive;
+    color: black;
+}
+
+header {
+    text-align: center;
+    font-size: 60px;
+}
+
+#edition {
+    font-size: 30px;
+}
+
+#container {
+    width: 980px;
+    height: 500px;
+    margin: auto;
+}
+
+#column1 {
+    width: 64%;
+    height: 490px;
+    border-style: dashed;
+    border-width: 5px;
+    border-color: black;
+    float: left;
+}
+
+#beginMessage {
+    padding: 5px;
+    height: 60px;
+    font-size: 30px;
+    text-align: center;
+}
+
+#winningPic {
+    height: 300px;
+    margin: 0 auto;
+    visibility: hidden;
+}
+
+#pic {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#activeWord {
+    height: 100px;
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: 10px;
+}
+
+#column2 {
+    width: 33%;
+    height: 490px;
+    border-style: dashed;
+    border-width: 5px;
+    border-color: black;
+    float:left;
+}
+
+#record {
+    height: 100px;
+    font-size: 25px;
+    text-align: center;
+}
+
+#guesses {
+    height: 100px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#remainingGuesses {
+    font-size: 35px;
+}
+
+#pickedLetters {
+    height: 200px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#wrongLetters {
+    letter-spacing: 10px;
+}

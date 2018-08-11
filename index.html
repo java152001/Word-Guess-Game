@@ -5,10 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Word Guess!</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative" rel="stylesheet">
 </head>
 <body>
     
-<h1>Open the Console to see the magic!</h1>
+    <header>
+        <div>Word Guess!</div>
+        <div id="edition">Game of Thrones Edition</div>
+    </header>
+
+    <div id="container">
+        <div id="column1">
+            <header>
+                <p id="beginMessage">Make a Guess to begin!</p>
+            </header>
+            <div id="winningPic">
+                <img id="pic" src="#"></img>
+            </div>
+            <div id="activeWord">
+
+            </div>
+
+        </div>
+        <div id="column2">
+            <div id="record">
+                <p>Wins: <span id="wins">0</span></p>
+                <p>Losses: <span id="losses">0</span></p>
+            </div>
+            <div id="guesses">
+                <p>Guesses Remaining: </p>
+                <p id="remainingGuesses">12</p>
+            </div>
+            <div id="pickedLetters">
+                <p>Letters already guessed: </p>
+                <span id="wrongLetters"></span>
+            </div>
+        </div>
+
+    </div>
+
+
 
     <script src="assets/javascript/game.js"></script>
 </body>
